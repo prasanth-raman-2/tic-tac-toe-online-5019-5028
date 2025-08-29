@@ -1,0 +1,137 @@
+:root {
+  --primary-color: #1976D2;
+  --secondary-color: #212121;
+  --accent-color: #FFC107;
+  --bg-color: #ffffff;
+  --text-color: #212121;
+  --border-color: #e0e0e0;
+  --hover-color: #2196F3;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  padding: 20px;
+}
+
+.game-container {
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.game-title {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.game-status {
+  font-size: 1.5rem;
+  margin: 20px 0;
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+.game-status.winner {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.game-status.draw {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.game-square {
+  aspect-ratio: 1;
+  border: 2px solid var(--border-color);
+  background: var(--bg-color);
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.game-square:hover:not(:disabled) {
+  background: rgba(25, 118, 210, 0.1);
+  border-color: var(--primary-color);
+}
+
+.game-square:disabled {
+  cursor: not-allowed;
+}
+
+.game-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.control-btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.mode-btn {
+  background-color: var(--accent-color);
+  color: var(--secondary-color);
+}
+
+.reset-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.control-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .game-container {
+    padding: 10px;
+  }
+
+  .game-title {
+    font-size: 2rem;
+  }
+
+  .game-status {
+    font-size: 1.2rem;
+  }
+
+  .game-square {
+    font-size: 1.5rem;
+  }
+
+  .control-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
